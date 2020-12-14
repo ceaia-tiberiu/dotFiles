@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+
+yayPackages=(
+  postgresql
+  redis
+  robo3t-bin
+  mongodb-bin
+  mongodb-tools-bin
+  dropbox
+  spotify
+  github-cli
+  redis 
+  ranger
+  nodejs
+  npm
+  jre-openjdk
+  dbeaver
+  neovim-git
+  python-pip
+)
+
+echo 'Enable redis service'
+  sudo systemctl enable redis.service
+  sudo systemctl start redi.services
+  sudo systemctl enable mongodb.service
+  sudo systemctl start mongodb.service
+  sudo chown -R postgres:postgres /var/lib/postgres/   
+  sudo su - postgres -c "initdb --locale en_US.UTF-8 -D '/var/lib/postgres/data'"
+  sudo systemctl enable postgresql.service
+  sudo systemctl start postgresql.service
+
+echo 'Login for github cli to work'
+
+  gh auth login
+
+
+
+
