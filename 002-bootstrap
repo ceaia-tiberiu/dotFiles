@@ -30,9 +30,16 @@ git clone git@github.com:ceaia-tiberiu/dotFiles.git dot
 
 ln -s ~/Repo/dot/.bin ~/
 ln -s ~/Repo/dot/.config ~/
+ln -s ~/Repo/dot/.git ~/
 ln -s ~/Repo/dot/.gitconfig ~/
-ln -s ~/Repo/dot/.zshrc
-ln -s ~/Repo/dot/.zshrc-personal
+ln -s ~/Repo/dot/.zshrc ~/
+ln -s ~/Repo/dot/.zshrc-personal ~/
+ln -s ~/Repo/dot/.bashrc ~/
+ln -s ~/Repo/dot/.bashrc-personal ~/
+ln -s ~/Repo/dot/.vim ~/
+ln -s ~/Repo/dot/.vimrc ~/
+ln -s ~/Repo/dot/.tmux.conf ~/
+ln -s ~/Repo/dot/.conkyrc ~/
 
 pacman -S base-devel
 
@@ -47,5 +54,5 @@ pacPackages=()
 
 yayPackages=()
 
-sudo pacman -s ${pacPackages[@]}
-yay -s ${yayPackages[@]}
+sudo pacman -s ${pacPackages[@]} --noconfirm
+yay -s ${yayPackages[@]} --noconfirm

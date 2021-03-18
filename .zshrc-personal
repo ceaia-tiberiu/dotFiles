@@ -1,0 +1,38 @@
+source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+alias c="clear"
+alias envconf="vim ~/.zshrc-personal"
+alias sites="cd ~/sites"
+alias pac="sudo pacman -S"
+alias pacup="sudo pacman -Syu"
+alias vimconf="vim ~/.vimrc"
+alias refresh="source ~/.zshrc; clear"
+alias v="vim"
+# -= Tmux Settings =-
+alias tas="tmux attach-session -t"
+alias ts="tmux new -s"
+alias tl="tmux ls"
+alias tr="tmux source-file ~/.tmux.conf"
+alias tconf="vim ~/.tmux.conf"
+# -= Tmux end settings
+
+alias dcu="docker-compose up -d"
+alias dcd="docker-compose down"
+
+# -= Mongo Settings =-
+mongoup() {
+	cd ~/sites/mongodb/;
+  dcu;
+}
+mongodn() {
+	cd ~/sites/mongodb;
+  dcd;
+}
+alias mbash="docker -it mongoDB bash"
+alias mlog="docker logs mongoDB"
+# -= End Mongo settings =-
+
+alias dot="cd ~/Repo/dot"
+
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
+
+source /usr/share/nvm/init-nvm.sh
