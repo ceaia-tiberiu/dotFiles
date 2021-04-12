@@ -23,6 +23,13 @@
 .config/coc
 .config/balena-etcher-electron
 .config/concky
+.config/Code
+.config/pulse
+.config/session
+.config/albert
+.config/evolution
+.config/redisDesktop
+.config/dconf
 
 .vim/plugged
 

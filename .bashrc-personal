@@ -12,4 +12,4 @@ alias ts="tmux new -s"
 alias tl="tmux ls"
 alias tr="tmux source-file ~/.tmux.conf"
 alias vimconf="vim ~/.vimrc"
-
+alias yay="yay -S --no-confirm"

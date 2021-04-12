@@ -5,8 +5,6 @@ echo 'before running, insure git is installed, and arch boot-strapping script is
 
 echo ''
 
-sudo pacman -S openssh
-
 ssh-keygen -t ed25519
 
 echo ' '
@@ -15,9 +13,12 @@ echo ' '
 
 cat ~ /.ssh/id_ed25519.pub
 
-echo "
+echo ' '
 
 ready y
+
+
+sudo pacman -S base-devel
 
 cd ~
 
@@ -41,13 +42,12 @@ ln -s ~/Repo/dot/.vimrc ~/
 ln -s ~/Repo/dot/.tmux.conf ~/
 ln -s ~/Repo/dot/.conkyrc ~/
 
-pacman -S base-devel
 
 cd ~/.config
 git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
-cd ~ 
+cd ~
 
 #install applications
 pacPackages=()
