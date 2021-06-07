@@ -1,0 +1,34 @@
+pane	gg-docker	1	:re-app	1	:*	1	:/Users/tiberiu/dev/giffgaff/giffgaff-re-app/e2eTests	0	zsh	:
+pane	gg-docker	1	:re-app	1	:*	2	:/Users/tiberiu/work/gg/smart-stub-data-loader	1	zsh	:
+pane	gg-docker	1	:re-app	1	:*	3	:/Users/tiberiu/dev/giffgaff/graphql-server	0	node	:npm   
+pane	gg-docker	1	:re-app	1	:*	4	:/Users/tiberiu/dev/giffgaff/giffgaff-re-app	0	zsh	:
+pane	gg-docker	2	:zsh	0	:	1	:/Users/tiberiu/work/gg-docker	1	zsh	:
+pane	gg-docker	3	:nexus	0	:	1	:/Users/tiberiu/work/gg	1	zsh	:
+pane	gg-docker	4	:goodybag_ssr	0	:	1	:/Users/tiberiu/work/gg/goodybag_ssr	0	zsh	:
+pane	gg-docker	4	:goodybag_ssr	0	:	2	:/Users/tiberiu/work/gg/goodybag_ssr	0	zsh	:
+pane	gg-docker	4	:goodybag_ssr	0	:	3	:/Users/tiberiu/work/gg/goodybag_ssr	1	zsh	:
+pane	gg-docker	5	:re-app	0	:-	1	:/Users/tiberiu/dev/giffgaff/giffgaff-re-app	1	node	:npm   
+pane	gg-docker	6	:nexus	0	:	1	:/Users/tiberiu/work/gg	1	zsh	:
+pane	gg-docker	7	:gg	0	:	1	:/Users/tiberiu/work/gg/goodybag_ssr	1	zsh	:
+pane	gg-docker	8	:topup_ssr	0	:	1	:/Users/tiberiu/work/gg/topup_ssr	1	zsh	:
+pane	sites	1	:sites	1	:*	1	:/Users/tiberiu/Temp	1	zsh	:
+pane	sites	1	:sites	1	:*	2	:/Users/tiberiu/sites/wedilish/web	0	zsh	:
+pane	sites	1	:sites	1	:*	3	:/Users/tiberiu/sites/wedilish/web	0	zsh	:
+pane	sites	1	:sites	1	:*	4	:/Users/tiberiu/sites/wedilish/server	0	zsh	:
+pane	sites	1	:sites	1	:*	5	:/Users/tiberiu/sites/wedilish/server	0	zsh	:
+pane	sites	2	:zsh	0	:	1	:/Users/tiberiu/sites/kafka_example_microservices/springboot_microservice/loansource	1	zsh	:
+pane	sites	3	:zsh	0	:	1	:/Users/tiberiu/sites/kafka_example_microservices/springboot_microservice/loancheck	1	zsh	:
+pane	sites	4	:zsh	0	:-	1	:/Users/tiberiu/sites/javascript_playground/kafka	1	zsh	:
+window	gg-docker	1	1	:*	5485,284x54,0,0[284x28,0,0{131x28,0,0,0,152x28,132,0,14},284x25,0,29{131x25,0,29,12,152x25,132,29,13}]
+window	gg-docker	2	0	:	e084,284x54,0,0,25
+window	gg-docker	3	0	:	ca5f,255x66,0,0,2
+window	gg-docker	4	0	:	125c,255x66,0,0[255x33,0,0,3,255x32,0,34{127x32,0,34,19,127x32,128,34,20}]
+window	gg-docker	5	0	:-	c0a1,284x54,0,0,4
+window	gg-docker	6	0	:	ca62,255x66,0,0,5
+window	gg-docker	7	0	:	ca63,255x66,0,0,6
+window	gg-docker	8	0	:	ca64,255x66,0,0,7
+window	sites	1	1	:*	3b31,255x60,0,0[255x31,0,0{123x31,0,0,8,131x31,124,0[131x18,124,0,17,131x12,124,19,18]},255x28,0,32{123x28,0,32,15,131x28,124,32,16}]
+window	sites	2	0	:	b266,255x60,0,0,9
+window	sites	3	0	:	595f,255x60,0,0,10
+window	sites	4	0	:-	5960,255x60,0,0,11
+state	gg-docker	

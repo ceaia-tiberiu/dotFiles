@@ -1,0 +1,25 @@
+pane	gg-docker	1	:re-app	1	:*	1	:/Users/tiberiu/dev/giffgaff/giffgaff-re-app	1	zsh	:
+pane	gg-docker	2	:gg-docker	0	:	1	:/Users/tiberiu/work/gg-docker	1	zsh	:
+pane	gg-docker	3	:nexus	0	:	1	:/Users/tiberiu/work/gg/portal-system-tests	1	zsh	:
+pane	gg-docker	4	:goodybag_ssr	0	:	1	:/Users/tiberiu/work/gg/goodybag_ssr	1	zsh	:
+pane	gg-docker	5	:re-app	0	:	1	:/Users/tiberiu/dev/giffgaff/giffgaff-re-app	1	zsh	:
+pane	gg-docker	6	:nexus	0	:	1	:/Users/tiberiu/sites/ultimate-backend	1	zsh	:
+pane	gg-docker	7	:gg	0	:	1	:/Users/tiberiu/sites/wedilish/server	1	zsh	:
+pane	gg-docker	8	:topup_ssr	0	:-	1	:/Users/tiberiu/sites/wedilish/web	1	zsh	:
+pane	sites	1	:sites	1	:*	1	:/Users/tiberiu/sites/kafka_example_microservices/springboot_microservice	1	zsh	:
+pane	sites	2	:zsh	0	:-	1	:/Users/tiberiu/sites/kafka_example_microservices/springboot_microservice/loansource	1	zsh	:
+pane	sites	3	:zsh	0	:	1	:/Users/tiberiu/sites/kafka_example_microservices/springboot_microservice/loancheck	1	zsh	:
+pane	sites	4	:zsh	0	:	1	:/Users/tiberiu/sites/javascript_playground/kafka	1	zsh	:
+window	gg-docker	1	1	:*	d25d,255x49,0,0,0
+window	gg-docker	2	0	:	d25e,255x49,0,0,1
+window	gg-docker	3	0	:	d25f,255x49,0,0,2
+window	gg-docker	4	0	:	d260,255x49,0,0,3
+window	gg-docker	5	0	:	d261,255x49,0,0,4
+window	gg-docker	6	0	:	d262,255x49,0,0,5
+window	gg-docker	7	0	:	d263,255x49,0,0,6
+window	gg-docker	8	0	:-	d264,255x49,0,0,7
+window	sites	1	1	:*	ba65,255x24,0,0,8
+window	sites	2	0	:-	ba66,255x24,0,0,9
+window	sites	3	0	:	5d5f,255x24,0,0,10
+window	sites	4	0	:	5d60,255x24,0,0,11
+state	sites	
