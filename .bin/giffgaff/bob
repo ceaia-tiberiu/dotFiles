@@ -1,6 +1,7 @@
 #!/bin/bash
 
 dir=$PWD
+imports="/Users/tiberiu/.bin/giffgaff/imports/"
 reAppDir="/Users/tiberiu/dev/giffgaff/giffgaff-re-app/"
 graphqlDir="/Users/tiberiu/dev/giffgaff/graphql-server/"
 reactComponentsDir="/Users/tiberiu/dev/giffgaff/react-web-components/"
@@ -15,10 +16,8 @@ designSystemDir="/Users/tiberiu/work/gg/design-system/"
 function clean() {
     echo "Params $1"
     case $1 in
-        docker)
-            docker rmi -f $(docker images -q)
-            docker rm -f $(docker ps -a -q)
-            docker volume rm $(docker volume ls -qf dangling=true)
+        docker-full)
+            ${imports}clean/clear-docker-full
         ;;
     esac
 }
@@ -37,7 +36,7 @@ function start() {
 
     case $1 in
         fe)
-            read -p "Update? [Y/n] "
+            ${imports}start/start-fe ${ggDockerDir} 4433
         ;;
     esac
 }
@@ -52,6 +51,7 @@ case $1 in
     ;;
     stop)
         echo "stop the program"
+        stop $2
     ;;
     enter)
         echo "enter the program"
