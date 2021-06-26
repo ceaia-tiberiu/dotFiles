@@ -29,6 +29,8 @@ cd Repo
 
 git clone git@github.com:ceaia-tiberiu/dotFiles.git dot
 
+sudo curl -sfL git.io/antibody | sudo sh -s - -b /usr/local/bin
+
 ln -s ~/Repo/dot/.bin ~/
 ln -s ~/Repo/dot/.config ~/
 ln -s ~/Repo/dot/.git ~/
@@ -41,7 +43,7 @@ ln -s ~/Repo/dot/.vim ~/
 ln -s ~/Repo/dot/.vimrc ~/
 ln -s ~/Repo/dot/.tmux.conf ~/
 ln -s ~/Repo/dot/.conkyrc ~/
-
+ln -s ~/Repo/dot/.zsh_plugins.txt ~/
 
 cd ~/.config
 git clone https://aur.archlinux.org/yay.git

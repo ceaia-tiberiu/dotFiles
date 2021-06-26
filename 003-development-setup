@@ -28,7 +28,7 @@ then
 
     nvm install --lts
 
-    npm i -g npm @nestjs/cli npm-check-update http-server netlify-cli tinypng-cli nodemon create-react-app create-react-library
+    npm i -g npm @nestjs/cli npm-check-updates http-server netlify-cli tinypng-cli nodemon create-react-app create-react-library
 
 fi
 
