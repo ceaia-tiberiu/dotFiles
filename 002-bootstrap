@@ -45,6 +45,12 @@ ln -s ~/Repo/dot/.tmux.conf ~/
 ln -s ~/Repo/dot/.conkyrc ~/
 ln -s ~/Repo/dot/.zsh_plugins.txt ~/
 
+cd ~
+mkdir -p .tmux/plugins
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm 
+
+
+
 cd ~/.config
 git clone https://aur.archlinux.org/yay.git
 cd yay
