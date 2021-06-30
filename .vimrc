@@ -62,6 +62,7 @@ Plug 'kien/ctrlp.vim'
 set number
 
 colorscheme gruvbox
+set encoding=UTF-8
 set background=dark
 set tabstop=2
 set autoindent

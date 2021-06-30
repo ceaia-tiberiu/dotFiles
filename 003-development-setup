@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-yayPackages="postgresql redis robo3t-bin mongodb-bin mongodb-tools-bin spotify redis ranger jre-openjdk dbeaver vim tmux yarn neovim-git python-pip"
+yayPackages="protobuf docker docker-compose postgresql redis robo3t-bin mongodb-bin mongodb-tools-bin spotify redis ranger jre-openjdk dbeaver vim tmux yarn neovim-git python-pip"
 
 yay -S ${yayPackages} --needed --noconfirm
 
