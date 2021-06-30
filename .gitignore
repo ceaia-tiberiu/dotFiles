@@ -32,7 +32,7 @@
 .config/dconf
 
 .vim/plugged
-
+.vim/.netrwhist
 
 
 

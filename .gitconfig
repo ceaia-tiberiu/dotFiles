@@ -31,3 +31,5 @@
 	perrl = "!perrl() { echo -e '\\E[41;1m'\"\\033[1m\"; printf \" %-60s\" \"$1\"; echo -en '\\E[41;1m'\"\\033[1m\\033[0m\";}; perrl"
 	last = log -1 HEAD
 
+[init]
+	defaultBranch = master
