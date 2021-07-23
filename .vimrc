@@ -30,10 +30,11 @@ Plug 'tomtom/tlib_vim'
 Plug 'christoomey/vim-system-copy'
 Plug 'grvcoelho/vim-javascript-snippets'
 Plug 'tpope/vim-fugitive'
-" Plug 'junegunn/fzf', { 'do': { -> fzf#install() }}
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() }}
 Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
-" Plug 'junegunn/fzf.vim'
-" Plug 'stsewd/fzf-checkout.vim'
+Plug 'junegunn/fzf.vim'
+Plug 'stsewd/fzf-checkout.vim'
+Plug 'airblade/vim-rooter'
 Plug 'vim-airline/vim-airline'
 Plug 'morhetz/gruvbox'
 Plug 'mxw/vim-jsx'
@@ -60,25 +61,142 @@ Plug 'kien/ctrlp.vim'
  call plug#end()
 
 set number
+set rtp+=/usr/local/opt/fzf
+
+" Settings {{{
+" " Switch syntax highlighting on, when the terminal has colors
+syntax on
+"
+" " Use vim, not vi api
+set nocompatible
+"
+" " No backup files
+set nobackup
+"
+" " No write backup
+set nowritebackup
+"
+" " No swap file
+set noswapfile
+"
+" " Command history
+set history=100
+"
+" " Always show cursor
+set ruler
+"
+" " Show incomplete commands
+set showcmd
+"
+" " Incremental searching (search as you type)
+set incsearch
+"
+" " Highlight search matches
+set hlsearch
+"
+" " Ignore case in search
+set smartcase
+"
+" " Make sure any searches /searchPhrase doesn't need the \c escape character
+set ignorecase
+"
+" " A buffer is marked as ‘hidden’ if it has unsaved changes, and it is not
+" currently loaded in a window
+" " if you try and quit Vim while there are hidden buffers, you will raise an
+" error:
+" " E162: No write since last change for buffer “a.txt”
+set hidden
+"
+" " Turn word wrap off
+set nowrap
+"
+" " Allow backspace to delete end of line, indent and start of line characters
+set backspace=indent,eol,start
+"
+" " Convert tabs to spaces
+ set expandtab
+"
+" " Set tab size in spaces (this is for manual indenting)
+ set tabstop=2
+"
+" " The number of spaces inserted for a tab (used for auto indenting)
+ set shiftwidth=2
+"
+" " Turn on line numbers
+set number
+"
+" " Highlight tailing whitespace
+" " See issue: https://github.com/Integralist/ProVim/issues/4
+set list listchars=tab:\ \ ,trail:·
+"
+" " Get rid of the delay when pressing O (for example)
+" "
+" http://stackoverflow.com/questions/2158516/vim-delay-before-o-opens-a-new-line
+ set timeout timeoutlen=1000 ttimeoutlen=100
+"
+" " Always show status bar
+set laststatus=2
+"
+" " Set the status line to something useful
+set statusline=%f\ %=L:%l/%L\ %c\ (%p%%)
+"
+" " Hide the toolbar
+set guioptions-=T
+"
+" " Autoload files that have changed outside of vim
+set autoread
+"
+" " Use system clipboard
+" "
+" http://stackoverflow.com/questions/8134647/copy-and-paste-in-vim-via-keyboard-between-different-mac-terminals
+set clipboard+=unnamed
+"
+" " Don't show intro
+set shortmess+=I
+"
+" " Better splits (new windows appear below and to the right)
+set splitbelow
+set splitright
+"
+" " Highlight the current line
+set cursorline
+"
+" " Ensure Vim doesn't beep at you every time you make a mistype
+set visualbell
+"
+" " Visual autocomplete for command menu (e.g. :e ~/path/to/file)
+set wildmenu
+"
+" " redraw only when we need to (i.e. don't redraw when executing a macro)
+set lazyredraw
+"
+" " highlight a matching [{()}] when cursor is placed on start/end character
+set showmatch
+"
+" " Set built-in file system explorer to use layout similar to the NERDTree
+" plugin
+" let g:netrw_liststyle=3
+"
+" " Always highlight column 80 so it's easier to see where
+" " cutoff appears on longer screens
+autocmd BufWinEnter * highlight ColorColumn ctermbg=darkred
+set colorcolumn=120
+" " }}}
 
 colorscheme gruvbox
 set encoding=UTF-8
 set background=dark
-set tabstop=2
 set autoindent
-set expandtab
 set softtabstop=2
-set cursorline
 syntax enable
-set showmatch
-set incsearch
-set hlsearch
 nnoremap <leader><space> :nohlsearch<CR>
 set foldenable
 set foldlevelstart=10
 set foldnestmax=10
 nnoremap <space> za
 set foldmethod=indent
+map :w :up
+map :q :confirm q
 nnoremap j gj
 nnoremap k gk
 nnoremap B ^
@@ -101,10 +219,32 @@ let g:ctrlp_switch_buffer = 0
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
 let g:ctrlp_working_path_mode = 'ra'
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
-set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn|node_modules)$'
-
+" CtrlP
+map <leader>t <C-p>
+map <leader>y :CtrlPBuffer<cr>
+let g:ctrlp_show_hidden=1
+let g:ctrlp_working_path_mode=0
+let g:ctrlp_max_height=30
+"
+" " CtrlP -> override <C-o> to provide options for how to open files
+let g:ctrlp_arg_map = 1
+"
+" " CtrlP -> files matched are ignored when expanding wildcards
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*.,*/.DS_Store
+"
+" " CtrlP -> use Ag for searching instead of VimScript
+" " (might not work with ctrlp_show_hidden and ctrlp_custom_ignore)
+let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+"
+" " CtrlP -> directories to ignore when fuzzy finding
+let g:ctrlp_custom_ignore = '\v[\/]((node_modules)|\.(git|svn|grunt|sass-cache))$'
+"
+" " Ack (uses Ag behind the scenes)
+let g:ackprg = 'ag --nogroup --nocolor --column'
+"
+" " Airline (status line)
+let g:airline_powerline_fonts = 1
 
 " allows cursor change in tmux mode
 if exists('$TMUX')
@@ -114,12 +254,6 @@ else
     let &t_SI = "\<Esc>]50;CursorShape=1\x7"
     let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 endif
-
-set backup
-set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-set backupskip=/tmp/*,/private/tmp/*
-set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-set writebackup
 
 " toggle between number and relativenumber
 function! ToggleNumber()
@@ -153,8 +287,81 @@ let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let b:ale_fixers = ['eslint']
 let g:ale_fix_on_save = 1
-let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8}}
-let $FZF_DEFAULT_OPTS='--reverse'
+
+"========== FZF Config =============
+
+" This is the default extra key bindings
+let g:fzf_action = {
+   \ 'ctrl-t': 'tab split',
+   \ 'ctrl-x': 'split',
+   \ 'ctrl-v': 'vsplit' }
+
+" Enable per-command history.
+" CTRL-N and CTRL-P will be automatically bound to next-history and
+" previous-history instead of down and up. If you don't like the change,
+" explicitly bind the keys to down and up in your $FZF_DEFAULT_OPTS.
+let g:fzf_history_dir = '~/.local/share/fzf-history'
+
+map <C-f> :Files<CR>
+map <leader>b :Buffers<CR>
+nnoremap <leader>g :Rg<CR>
+nnoremap <leader>t :Tags<CR>
+nnoremap <leader>m :Marks<CR>
+
+
+let g:fzf_tags_command = 'ctags -R'
+" Border color
+let g:fzf_layout = {'up':'~90%', 'window': { 'width': 0.8, 'height': 0.8,'yoffset':0.5,'xoffset': 0.5, 'highlight': 'Todo', 'border': 'sharp' } }
+"
+let $FZF_DEFAULT_OPTS = '--layout=reverse --info=inline'
+let $FZF_DEFAULT_COMMAND="rg --files --hidden"
+
+" Customize fzf colors to match your color scheme
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
+
+
+"Get Files
+command! -bang -nargs=? -complete=dir Files
+ \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'options': ['--layout=reverse', '--info=inline']}), <bang>0)
+
+" Get text in files with Rg
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
+  \   fzf#vim#with_preview(), <bang>0)
+
+" Ripgrep advanced
+function! RipgrepFzf(query, fullscreen)
+  let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case %s || true'
+  let initial_command = printf(command_fmt, shellescape(a:query))
+  let reload_command = printf(command_fmt, '{q}')
+  let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
+  call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
+endfunction
+
+command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
+
+" Git grep
+command! -bang -nargs=* GGrep
+  \ call fzf#vim#grep(
+  \   'git grep --line-number '.shellescape(<q-args>), 0,
+  \   fzf#vim#with_preview({'dir': systemlist('git rev-parse --show-toplevel')[0]}), <bang>0)
+
+
+"========== END  FZF Config =========
 " Emmet config
 let g:user_emmet_leader_key='<C-y>'
 let g:user_emmet_install_global = 0
@@ -200,7 +407,6 @@ let g:prettier#config#config_precedence = 'prefer-file'
 " NERDTress Ctrl+n
 nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTreeToggle<CR>
-nnoremap <C-f> :NERDTreeFind<CR>
 
 
 let g:coc_global_extensions = [
