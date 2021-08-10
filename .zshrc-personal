@@ -9,7 +9,12 @@ alias refresh='source ~/.zshrc; clear;'
 alias p='lpass show -c -q --password -G';
 alias cat='bat --paging=never'
 alias v="vim"
+alias pnx="pnpm run nx --"
 alias myip='ifconfig | grep 0xffffff00'
+#Disable autocorrect
+unsetopt correct_all
+unsetopt correct
+DISABLE_CORRECTION="true"
 # -= Tmux Settings =-
 alias tas="tmux attach-session -t"
 alias tat='tmux new-session -As $(basename "$PWD" | tr . -)' # will attach if session exists, or create a new session
@@ -18,6 +23,7 @@ alias tl="tmux ls"
 alias tr="tmux source-file ~/.tmux.conf"
 alias tconf="vim ~/.tmux.conf"
 alias tm="tmuxifier"
+export PATH="$HOME/lsites/flutter/bin:$PATH"
 export PATH="$HOME/.tmuxifier/bin:$PATH"
 export TMUXIFIER_LAYOUT_PATH="$HOME/Repo/dot/.tmux-layouts"
 eval "$(tmuxifier init -)"

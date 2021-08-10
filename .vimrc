@@ -10,9 +10,6 @@ Plug 'junegunn/vim-easy-align'
 
 Plug 'https://github.com/junegunn/vim-github-dashboard.git'
 
-" Multiple Plug commands can be written in a single line using | separators
-Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
-
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -80,7 +77,7 @@ set nowritebackup
 set noswapfile
 "
 " " Command history
-set history=100
+set history=10000
 "
 " " Always show cursor
 set ruler
@@ -211,6 +208,32 @@ nnoremap <leader>ez :vsp ~/.zshrc<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
 nnoremap <leader>u :GundoToggle<CR>
 nnoremap <leader>a :Ag
+" Alte remaps -> good ones
+nnoremap Y y$
+" Keep it in center
+nnoremap n nzzzv
+nnoremap N Nzzzv
+nnoremap J mzJ`z
+" undo break points
+inoremap , ,<c-g>U
+inoremap . .<c-g>U
+inoremap ! !<c-g>U
+inoremap ? ?<c-g>U
+inoremap [ [<c-g>U
+" jumplist mutations
+nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "" ) . 'k'
+nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "" ) . 'j'
+" Moving Text
+
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+inoremap <C-j> <esc>:m .+1<CR>==
+inoremap <C-k> <esc>:m .-2<CR>==
+nnoremap <leader>j :m +1<CR>==
+nnoremap <leader>k :m -2<CR>==
+
+
+
 " save session
 nnoremap <leader>s :mksession<CR>
 " CtrlP settings
@@ -340,12 +363,12 @@ command! -bang -nargs=? -complete=dir Files
 " Get text in files with Rg
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
-  \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
-  \   fzf#vim#with_preview(), <bang>0)
+  \   'rg -g "!dist/" -g "!package-lock.json" -g "!yarn.lock" -g "!.git" -g "!node_modules" --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
+  \   fzf#vim#with_preview({'options':'--exact --delimiter : --nth 4..'}), <bang>0)
 
 " Ripgrep advanced
 function! RipgrepFzf(query, fullscreen)
-  let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case %s || true'
+  let command_fmt = 'rg  -g "!dist/" -g "!package-lock.json" -g "!yarn.lock" -g "!.git" -g "!node_modules" --column --line-number --no-heading --color=always --smart-case %s || true'
   let initial_command = printf(command_fmt, shellescape(a:query))
   let reload_command = printf(command_fmt, '{q}')
   let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
