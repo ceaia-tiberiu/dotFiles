@@ -23,7 +23,6 @@ alias tl="tmux ls"
 alias tr="tmux source-file ~/.tmux.conf"
 alias tconf="vim ~/.tmux.conf"
 alias tm="tmuxifier"
-export PATH="$HOME/lsites/flutter/bin:$PATH"
 export PATH="$HOME/.tmuxifier/bin:$PATH"
 export TMUXIFIER_LAYOUT_PATH="$HOME/Repo/dot/.tmux-layouts"
 eval "$(tmuxifier init -)"
@@ -209,9 +208,12 @@ function preexec {
 function postexec {
    set_running_app
 }
-
-source /usr/share/fzf/completion.zsh
-source /usr/share/fzf/key-bindings.zsh
+if [ "$(uname 2> /dev/null)" == "Linux"  ]; then
+  export PATH="$HOME/lsites/flutter/bin:$PATH"
+  typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
+  source /usr/share/fzf/completion.zsh
+  source /usr/share/fzf/key-bindings.zsh
+fi
 # source /usr/share/nvm/init-nvm.sh
 export NVM_DIR="$HOME/.nvm"
 
