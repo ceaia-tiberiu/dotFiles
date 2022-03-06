@@ -98,13 +98,13 @@ alias skel='cp -Rf ~/.config ~/.config-backup-$(date +%Y.%m.%d-%H.%M.%S) && cp -
 alias bupskel='cp -Rf /etc/skel ~/.skel-backup-$(date +%Y.%m.%d-%H.%M.%S)'
 
 #copy bashrc-latest over on bashrc - cb= copy bashrc
-alias cb='sudo cp /etc/skel/.bashrc ~/.bashrc && source ~/.bashrc'
+#alias cb='sudo cp /etc/skel/.bashrc ~/.bashrc && source ~/.bashrc'
 #copy /etc/skel/.zshrc over on ~/.zshrc - cb= copy zshrc
 #alias cz='sudo cp /etc/skel/.zshrc ~/.zshrc && source ~/.zshrc'
 
 #switch between bash and zsh
 alias tobash="sudo chsh $USER -s /bin/bash && echo 'Now log out.'"
-alias tozsh="sudo chsh $USER -s /bin/zsh && echo 'Now log out.'"
+#alias tozsh="sudo chsh $USER -s /bin/zsh && echo 'Now log out.'"
 
 #quickly kill conkies
 alias kc='killall conky'

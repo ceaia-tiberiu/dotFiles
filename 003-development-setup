@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-yayPackages="bat fzf ripgrep universal-ctags-git fd  notion-app-enchanged qtkeychain gnome-keyring the_silver_searcher transmission-gtk go go-tools protobuf docker docker-compose postgresql redis robo3t-bin mongodb-bin mongodb-tools-bin spotify redis ranger jre-openjdk dbeaver vim tmux yarn neovim-git python-pip"
+yayPackages="bat fzf ripgrep universal-ctags-git fd  notion-app-enchanged qtkeychain gnome-keyring the_silver_searcher transmission-gtk go go-tools protobuf docker docker-compose postgresql redis robo3t-bin mongodb-bin mongodb-tools-bin spotify redis ranger jre-openjdk dbeaver vim tmux yarn python-pip"
 
 yay -S ${yayPackages} --needed --noconfirm
 

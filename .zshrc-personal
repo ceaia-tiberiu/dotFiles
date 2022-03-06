@@ -1,21 +1,25 @@
-typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
 alias c="clear"
 alias cnm='find . -name "node_modules" -type d -prune -exec rm -rf '{}' +' # clears node_modules in folder/subfolders
-alias envconf="vim ~/.zshrc-personal"
+alias envconf="nvim ~/.zshrc-personal"
 alias sites="cd ~/sites"
 alias pac="sudo pacman -S"
 alias pacup="sudo pacman -Syu"
-alias vimconf="vim ~/.vimrc"
+alias vimconf="nvim ~/.config/nvim"
 alias refresh='source ~/.zshrc; clear;'
 alias p='lpass show -c -q --password -G';
 alias cat='bat --paging=never'
-alias v="vim"
+alias v="nvim"
+alias tb="cd ~/sitesc/tibscon/"
+alias ntb="tb; nvim ."
+alias vim="nvim"
 alias pnx="pnpm run nx --"
 alias myip='ifconfig | grep 0xffffff00'
 #Disable autocorrect
 unsetopt correct_all
 unsetopt correct
 DISABLE_CORRECTION="true"
+alias kgp="kubectl get pods"
+alias kdp="kubectl describe pod"
 # -= Tmux Settings =-
 alias tas="tmux attach-session -t"
 alias tat='tmux new-session -As $(basename "$PWD" | tr . -)' # will attach if session exists, or create a new session
@@ -71,6 +75,9 @@ case "$OSTYPE" in
     export PATH="$HOME/lsites/flutter/bin:$PATH"
     source /usr/share/fzf/completion.zsh
     source /usr/share/fzf/key-bindings.zsh
+	export GOPATH=$HOME/golib
+	export PATH=$PATH:$GOPATH/bin
+	export GOPATH=$GOPATH:$HOME/sitesc/golangcode
   ;;
   dragonfly*|freebsd*|netbsd*|openbsd*)
     # ...
