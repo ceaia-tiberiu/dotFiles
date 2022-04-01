@@ -16,12 +16,12 @@ window:
   startup_mode: Maximized
 
   decorations: none #No borders or menu
+  opacity: 0.9
 
 scrolling:
   history: 100000
   multiplier: 3
 
-background_opacity: 0.9
 
 cursor:
   style: Block
@@ -36,30 +36,12 @@ font:
   # UI for powerline & tmux bottom bar.
   normal:
     # Font name
-    family: Monoid
+    family: "JetBrains Mono"
     # Font face
-    style: Retina
-
-  # Bold font face
-  bold:
-    family: Monoid
-    style: Bold
-
-  # Italic font face
-  italic:
-    family: Monoid
-    style: Italic
-
-  # Bold italic font face
-  # Note: Since i don't have a font italic version of this font, I just specified
-  # italic & it just works. You may specifiy the bold italic version if it exists
-  # for your font
-  bold_italic:
-    family: Monoid
-    style: Italic
+    style: regular
 
   # Font size
-  size: 14.0
+  size: 12.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing
@@ -67,7 +49,7 @@ font:
   # to your convenience but make sure to adjust 'glyph_offset' appropriately post that
   offset:
     x: 0
-    y: 14
+    y: 12
 
   # Note: This requires RESTART
   # By default when you change the offset above you'll see an issue, where the texts are bottom
@@ -129,3 +111,10 @@ colors:
     magenta: '#B48EAD'
     cyan: '#8FBCBB'
     white: '#ECEFF4'
+
+shell:
+  program: /bin/zsh
+  args:
+    - -l
+    - -c
+    - "tmux attach || tmux"

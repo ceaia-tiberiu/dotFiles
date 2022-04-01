@@ -3,6 +3,7 @@ alias cnm='find . -name "node_modules" -type d -prune -exec rm -rf '{}' +' # cle
 alias envconf="nvim ~/.zshrc-personal"
 alias sites="cd ~/sites"
 alias pac="sudo pacman -S"
+alias yay="yay --noconfirm"
 alias pacup="sudo pacman -Syu"
 alias vimconf="nvim ~/.config/nvim"
 alias refresh='source ~/.zshrc; clear;'
@@ -76,8 +77,11 @@ case "$OSTYPE" in
     source /usr/share/fzf/completion.zsh
     source /usr/share/fzf/key-bindings.zsh
 	export GOPATH=$HOME/golib
-	export PATH=$PATH:$GOPATH/bin
-	export GOPATH=$GOPATH:$HOME/sitesc/golangcode
+	export PATH=$PATH:/usr/local/go/bin
+	export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+	export GO111MODULE=on
+	export BROWSER=firefox
+	export GOPATH=$GOPATH:$HOME/sites/golangcode
   ;;
   dragonfly*|freebsd*|netbsd*|openbsd*)
     # ...

@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
-yayPackages="bat fzf ripgrep universal-ctags-git fd  notion-app-enchanged qtkeychain gnome-keyring the_silver_searcher transmission-gtk go go-tools protobuf docker docker-compose postgresql redis robo3t-bin mongodb-bin mongodb-tools-bin spotify redis ranger jre-openjdk dbeaver vim tmux yarn python-pip"
+yayPackages="bat fzf ripgrep universal-ctags-git figma-linux fd  notion-app-enchanged qtkeychain gnome-keyring the_silver_searcher transmission-gtk go go-tools protobuf docker docker-compose postgresql redis robo3t-bin mongodb-bin mongodb-tools-bin spotify ranger jre-openjdk dbeaver vim tmux yarn python-pip"
 
 yay -S ${yayPackages} --needed --noconfirm
 
 echo 'Enable services'
   sudo systemctl enable redis.service
-  sudo systemctl start redis.services
+  sudo systemctl start redis.service
   sudo systemctl enable mongodb.service
   sudo systemctl start mongodb.service
   sudo chown -R postgres:postgres /var/lib/postgres/
@@ -14,13 +14,16 @@ echo 'Enable services'
   sudo systemctl enable postgresql.service
   sudo systemctl start postgresql.service
 
+  sudo groupadd docker
+  sudo usermod -aG docker $USER
+
 echo 'Setup environments'
  
 echo 'Installing NVM 0.38.0, NODEJS, NPM and other NPM global Libraries'
 
 if ! [ -d "$HOME/.nvm" ]
 then
-    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 
     export NVM_DIR=$HOME/.nvm;
 
