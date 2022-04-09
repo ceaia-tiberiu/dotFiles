@@ -76,12 +76,12 @@ case "$OSTYPE" in
     export PATH="$HOME/lsites/flutter/bin:$PATH"
     source /usr/share/fzf/completion.zsh
     source /usr/share/fzf/key-bindings.zsh
-	export GOPATH=$HOME/golib
+	export GOPATH=$HOME/go
 	export PATH=$PATH:/usr/local/go/bin
 	export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 	export GO111MODULE=on
 	export BROWSER=firefox
-	export GOPATH=$GOPATH:$HOME/sites/golangcode
+	export PATH=$PATH:$GOPATH/bin
   ;;
   dragonfly*|freebsd*|netbsd*|openbsd*)
     # ...
