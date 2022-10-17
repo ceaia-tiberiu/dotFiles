@@ -38,9 +38,9 @@ font:
     # Font name
     family: "JetBrains Mono"
     # Font face
-    style: regular
+    style: Regular
 
-  # Font size
+    #Font size
   size: 12.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
